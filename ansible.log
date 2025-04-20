@@ -5089,3 +5089,50 @@ The offending line appears to be:
 2025-04-20 02:35:53,014 p=3907541 u=dhayllin-jesus n=ansible | PLAY RECAP *******************************************************************************************************************
 2025-04-20 02:35:53,014 p=3907541 u=dhayllin-jesus n=ansible | 159.65.255.159             : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2025-04-20 02:35:53,014 p=3907541 u=dhayllin-jesus n=ansible | 161.35.134.20              : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-04-20 02:51:50,173 p=3913964 u=dhayllin-jesus n=ansible | PLAY [Instalar Docker e Neofetch no Ubuntu 24] *******************************************************************************
+2025-04-20 02:51:50,181 p=3913964 u=dhayllin-jesus n=ansible | TASK [Gathering Facts] *******************************************************************************************************
+2025-04-20 02:52:10,436 p=3913964 u=dhayllin-jesus n=ansible | ok: [159.65.255.159]
+2025-04-20 02:52:10,898 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:52:10,919 p=3913964 u=dhayllin-jesus n=ansible | TASK [Atualizar o apt e instalar pacotes necessários] ************************************************************************
+2025-04-20 02:52:10,934 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:52:31,367 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:52:31,374 p=3913964 u=dhayllin-jesus n=ansible | TASK [Adicionar a chave GPG oficial do Docker] *******************************************************************************
+2025-04-20 02:52:31,390 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:52:49,902 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:52:49,914 p=3913964 u=dhayllin-jesus n=ansible | TASK [Adicionar o repositório do Docker ao apt] ******************************************************************************
+2025-04-20 02:52:49,940 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:53:08,646 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:53:08,663 p=3913964 u=dhayllin-jesus n=ansible | TASK [Atualizar apt novamente após adicionar repositório] ********************************************************************
+2025-04-20 02:53:08,687 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:53:28,343 p=3913964 u=dhayllin-jesus n=ansible | changed: [161.35.134.20]
+2025-04-20 02:53:28,358 p=3913964 u=dhayllin-jesus n=ansible | TASK [Instalar Docker] *******************************************************************************************************
+2025-04-20 02:53:28,378 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:53:45,844 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:53:45,854 p=3913964 u=dhayllin-jesus n=ansible | TASK [Garantir que o serviço do Docker está iniciado] ************************************************************************
+2025-04-20 02:53:45,881 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:54:03,848 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:54:03,858 p=3913964 u=dhayllin-jesus n=ansible | TASK [Adicionar o usuário atual ao grupo docker] *****************************************************************************
+2025-04-20 02:54:03,879 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:54:20,834 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:54:20,842 p=3913964 u=dhayllin-jesus n=ansible | TASK [Instalar Docker Compose] ***********************************************************************************************
+2025-04-20 02:54:20,868 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:54:38,360 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:54:38,367 p=3913964 u=dhayllin-jesus n=ansible | TASK [Criar link simbólico para docker-compose (caso necessário)] ************************************************************
+2025-04-20 02:54:38,385 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:54:54,932 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:54:54,937 p=3913964 u=dhayllin-jesus n=ansible | TASK [Instalar o neofetch] ***************************************************************************************************
+2025-04-20 02:54:54,953 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:55:12,773 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20]
+2025-04-20 02:55:12,792 p=3913964 u=dhayllin-jesus n=ansible | TASK [Exibir informações do sistema com neofetch] ****************************************************************************
+2025-04-20 02:55:12,813 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:55:28,388 p=3913964 u=dhayllin-jesus n=ansible | skipping: [161.35.134.20]
+2025-04-20 02:55:28,394 p=3913964 u=dhayllin-jesus n=ansible | TASK [Instalar pacote wget no centos] ****************************************************************************************
+2025-04-20 02:55:28,417 p=3913964 u=dhayllin-jesus n=ansible | skipping: [161.35.134.20]
+2025-04-20 02:55:45,619 p=3913964 u=dhayllin-jesus n=ansible | ok: [159.65.255.159]
+2025-04-20 02:55:45,624 p=3913964 u=dhayllin-jesus n=ansible | TASK [Exibir a saída do neofetch] ********************************************************************************************
+2025-04-20 02:55:45,636 p=3913964 u=dhayllin-jesus n=ansible | skipping: [159.65.255.159]
+2025-04-20 02:55:45,648 p=3913964 u=dhayllin-jesus n=ansible | ok: [161.35.134.20] => 
+  msg: ''
+2025-04-20 02:55:45,688 p=3913964 u=dhayllin-jesus n=ansible | PLAY RECAP *******************************************************************************************************************
+2025-04-20 02:55:45,688 p=3913964 u=dhayllin-jesus n=ansible | 159.65.255.159             : ok=2    changed=0    unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-04-20 02:55:45,688 p=3913964 u=dhayllin-jesus n=ansible | 161.35.134.20              : ok=12   changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
