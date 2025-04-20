@@ -1,0 +1,97 @@
+---
+- name: Instalar Docker e Neofetch no Ubuntu 24
+  hosts: all
+  become: true
+  vars_files:
+    - vars.yml
+  tasks:
+
+    - name: Atualizar o apt e instalar pacotes necessários
+      apt:
+        update_cache: yes
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Adicionar a chave GPG oficial do Docker
+      apt_key:
+        url: "{{ docker_gpg_url }}"
+        state: present
+      when: ansible_os_family == "Debian"
+
+
+    - name: Adicionar o repositório do Docker ao apt
+      apt_repository:
+        repo: "deb [arch=amd64] {{ docker_repo_base }} {{ ansible_lsb.codename }} stable"
+        state: present
+        filename: docker
+      when: ansible_os_family == "Debian"
+
+
+    - name: Atualizar apt novamente após adicionar repositório
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Instalar Docker
+      apt:
+        name: docker-ce
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Garantir que o serviço do Docker está iniciado
+      service:
+        name: docker
+        state: started
+        enabled: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Adicionar o usuário atual ao grupo docker
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Instalar Docker Compose
+      get_url:
+        url: "https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system | lower }}-{{ ansible_architecture }}"
+        dest: /usr/local/bin/docker-compose
+        mode: '0755'
+      when: ansible_os_family == "Debian"
+
+    - name: Criar link simbólico para docker-compose (caso necessário)
+      file:
+        src: /usr/local/bin/docker-compose
+        dest: /usr/bin/docker-compose
+        state: link
+        force: true
+      when: ansible_os_family == "Debian"
+
+    - name: Instalar o neofetch
+      apt:
+        name: neofetch
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Exibir informações do sistema com neofetch
+      command: neofetch
+      register: neofetch_output
+      when: ansible_os_family == "Debian"
+
+    - name: Instalar pacote wget no centos
+      yum:
+        update_cache: yes
+        name: wget
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Exibir a saída do neofetch
+      debug:
+        msg: "{{ neofetch_output.stdout }}"
+      when: ansible_os_family == "Debian"

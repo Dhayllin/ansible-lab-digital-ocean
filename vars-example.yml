@@ -1,0 +1,21 @@
+ubuntu_host: 161.35.xx.xx
+centos_host: 159.65.xx.xx
+
+ansible_user: user
+ansible_ssh_private_key_file: /home/user/.ssh/privet_key
+
+ubuntu_hostname: ubuntu-lab
+centos_hostname: centos-lab
+
+workdir: /opt/custom
+
+docker_gpg_url: https://download.docker.com/linux/ubuntu/gpg
+docker_repo_base: "https://download.docker.com/linux/ubuntu"
+docker_compose_version: "2.24.1"
+
+dict_dir: {
+  scripts: "{{ default_dir }}/scripts",
+  backups: "{{ default_dir }}/backups",
+  logs: "{{ default_dir }}/logs",
+  config: "{{ default_dir }}/config",  
+}

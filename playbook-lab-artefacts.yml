@@ -1,0 +1,44 @@
+---
+- name: Criar artefatos em cada máquina
+  hosts: all
+  become: true
+  gather_facts: no
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: Configurar hostname de cada máquina
+      hostname:
+        name: "{{ hostname }}"
+
+    - name: Criar diretório customizado
+      file:
+        path: "{{ default_dir }}"
+        state: directory
+        mode: '0755'
+        owner: root
+        group: root
+    
+    - name: Criar diretórios customizados
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+        owner: root
+        group: root
+      with_items:
+        - " {{ dict_dir.scripts }}"
+        - " {{ dict_dir.backups }}"
+        - " {{ dict_dir.logs }}"
+        - " {{ dict_dir.config }}"
+
+    - name: Criar teste.py com touch e tempos personalizados
+      ansible.builtin.file:
+        path: "{{ default_dir }}/teste.py"
+        state: touch
+        modification_time: preserve
+        access_time: preserve
+        mode: '0644'
+        owner: root
+        group: root
+
+ 
