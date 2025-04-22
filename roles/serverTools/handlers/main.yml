@@ -1,0 +1,9 @@
+---
+# handlers file for serverTools
+- name: 'addInHostsFile'
+  lineinfile: 
+    path: /etc/hosts
+    line: "{{ ansible_host }} {{ hostname }}"
+    create: yes
+- name: Restart Server 
+  reboot:

@@ -1,0 +1,9 @@
+---
+- name: Criar projeto final ServerTools
+  hosts: all
+  become: true
+  gather_facts: no
+  vars_files:
+    - vars.yml
+  roles:
+    - serverTools
